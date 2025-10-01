@@ -1,9 +1,9 @@
 export default function Home() {
   const menuItems = [
     { label: 'POTATO CHAT', href: 'https://ptwdym158.org/punkiez', external: true },
-    { label: 'INSTAGRAM', href: 'https://www.instagram.com/punkiez.la/', external: true },
-    { label: 'LOCATIONS', href: 'https://www.instagram.com/punkiez.la/', external: true },
-    { label: 'ABOUT', href: 'https://www.instagram.com/punkiez.la/', external: true },
+    { label: 'INSTAGRAM', href: 'https://www.instagram.com/punkiez__/', external: true },
+    { label: 'LOCATIONS', href: 'https://www.instagram.com/punkiez__/', external: true },
+    { label: 'ABOUT', href: 'https://www.instagram.com/punkiez__/', external: true },
     { label: 'CONTACT', href: 'https://t.me/punkiez2025', external: true },
   ];
 
