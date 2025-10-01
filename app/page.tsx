@@ -3,7 +3,7 @@ export default function Home() {
     { label: 'SHOP', href: 'https://t.me/+mx113PockSVjNzgx', external: true },
     { label: 'INSTAGRAM', href: 'https://www.instagram.com/punkiez.la/', external: true },
     { label: 'LOCATIONS', href: 'https://t.me/+mx113PockSVjNzgx', external: true },
-    { label: 'ABOUT', href: '#about' },
+    { label: 'ABOUT', href: 'https://www.instagram.com/punkiez.la/', external: true },
     { label: 'CONTACT', href: 'https://t.me/punkiez2025', external: true },
   ];
 
