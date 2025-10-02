@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PUNK-MAN</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hud">
+    <div id="hiscore">HIGH SCORE: <span id="hi">00000</span></div>
+    <div id="score">SCORE: 00000</div>
+    <div id="status">READY</div>
+  </div>
+  <canvas id="game" width="448" height="496"></canvas>
+  <div id="overlay" class="overlay">
+    <div class="panel">
+      <h1>PUNK-MAN</h1>
+      <p id="credit">CREDIT 1</p>
+      <button id="startBtn">START GAME</button>
+      <div class="hint">Press ␣ Space to start • P to pause • R to restart</div>
+      <div class="copyright">© TD STUDIOS</div>
+    </div>
+  </div>
+  <div class="controls">
+    <button id="pauseBtn">Pause</button>
+    <button id="resumeBtn">Resume</button>
+    <button id="restartBtn">Restart</button>
+  </div>
+  <script type="module" src="./src/game.js"></script>
+</body>
+</html>

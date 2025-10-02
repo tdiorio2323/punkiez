@@ -1,0 +1,14 @@
+:root { --bg:#0a0a0b; --fg:#e6e6e6; --accent:#ffd400; }
+*{box-sizing:border-box} html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font:14px/1.2 ui-sans-serif,system-ui,Segoe UI,Roboto,Arial}
+.hud{max-width:448px;margin:16px auto 8px;display:flex;justify-content:space-between;gap:8px}
+#game{display:block;margin:0 auto;border:2px solid #222;background:#000}
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.8)}
+.panel{color:#ffd400;text-align:center}
+.panel h1{margin:0 0 8px 0;font-size:42px;letter-spacing:2px}
+.panel #credit{color:#fff;margin:4px 0 12px 0}
+.panel button{padding:10px 18px;border:1px solid #ffd400;background:#111;color:#ffd400;cursor:pointer}
+.panel .hint{color:#bbb;margin-top:10px;font-size:12px}
+.panel .copyright{color:#666;margin-top:6px;font-size:11px}
+.controls{max-width:448px;margin:8px auto 0;display:flex;gap:8px;justify-content:center}
+.controls button{padding:6px 10px;border:1px solid #333;background:#111;color:#e6e6e6;cursor:pointer}
+.livesRow{position:relative;height:18px;margin:6px auto 0;max-width:448px}
