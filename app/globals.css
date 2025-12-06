@@ -13,15 +13,20 @@ body {
   color: #111827;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .glass {
   background-color: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 6px solid transparent !important;
   background-clip: padding-box;
   position: relative;
   z-index: 10;
+  isolation: isolate;
+  transform: translateZ(0);
+  will-change: auto;
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.4),
     0 15px 35px -10px rgba(0, 0, 0, 0.3),
@@ -54,6 +59,7 @@ body {
   mask-composite: exclude;
   z-index: -1;
   filter: brightness(1.2) contrast(1.1);
+  transform: translateZ(0);
 }
 
 .menu-btn {
@@ -165,20 +171,27 @@ body {
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  perspective: 1000px;
+  contain: layout style paint;
+}
+
+.bouncing-icon img {
+  display: block;
+  transform: translateZ(0);
 }
 
 /* Breathing Logo Animation */
 .breathing-logo {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   animation: breathe 3s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @keyframes breathe {
   0%, 100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0);
   }
 }

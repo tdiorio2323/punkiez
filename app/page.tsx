@@ -12,40 +12,52 @@ export default function Home() {
   ];
 
   const iconRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const icon = iconRef.current;
     if (!icon) return;
 
-    let x = Math.random() * (window.innerWidth - 128);
-    let y = Math.random() * (window.innerHeight - 128);
-    let dx = 4 + Math.random() * 3; // velocity x (faster)
-    let dy = 4 + Math.random() * 3; // velocity y (faster)
+    // Cache icon size to avoid layout thrashing
+    const iconSize = 128;
+    let x = Math.random() * (window.innerWidth - iconSize);
+    let y = Math.random() * (window.innerHeight - iconSize);
+    let dx = 4 + Math.random() * 3;
+    let dy = 4 + Math.random() * 3;
 
     const animate = () => {
-      const iconSize = icon.offsetWidth;
-
       // Update position
       x += dx;
       y += dy;
 
+      // Get viewport dimensions
+      const maxX = window.innerWidth - iconSize;
+      const maxY = window.innerHeight - iconSize;
+
       // Bounce off walls
-      if (x + iconSize >= window.innerWidth || x <= 0) {
+      if (x >= maxX || x <= 0) {
         dx = -dx;
-        x = x <= 0 ? 0 : window.innerWidth - iconSize;
+        x = x <= 0 ? 0 : maxX;
       }
-      if (y + iconSize >= window.innerHeight || y <= 0) {
+      if (y >= maxY || y <= 0) {
         dy = -dy;
-        y = y <= 0 ? 0 : window.innerHeight - iconSize;
+        y = y <= 0 ? 0 : maxY;
       }
 
-      // Use transform for better performance
-      icon.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      // Use transform for GPU acceleration
+      icon.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
 
-      requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    // Cleanup on unmount
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, []);
 
   return (
